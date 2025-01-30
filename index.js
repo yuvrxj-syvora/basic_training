@@ -15,11 +15,20 @@ function secondLargest(array) {
   return secondLargest;
 }
 
-console.log(secondLargest([2,12,33,21,21]))
-
 // Problem 2: Complete the calculateFrequency function that takes lowercase string as input and returns frequency of all english alphabet. (using only array, no in-built function)
 function calculateFrequency(string) {
   // Write your code here
+  const freqMap = {};
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] >= "a" && string[i] <= "z") {
+      if (freqMap[string[i]]) {
+        freqMap[string[i]]++;
+      } else {
+        freqMap[string[i]] = 1;
+      }
+    }
+  }
+  return freqMap;
 }
 
 // Problem 3: Complete the flatten function that takes a JS Object, returns a JS Object in flatten format (compressed)
