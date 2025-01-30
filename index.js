@@ -33,7 +33,29 @@ function calculateFrequency(string) {
 
 // Problem 3: Complete the flatten function that takes a JS Object, returns a JS Object in flatten format (compressed)
 function flatten(unflatObject) {
-  // Write your code here
+  // Write u your code here
+  const result = {};
+  for (const i in unflatObject) {
+    if (Array.isArray(unflatObject[i])) {
+      unflatObject[i].forEach((item, index) => {
+        const temp = flatten(item);
+        for (const j in temp) {
+          result[i + "." + index + "." + j] = temp[j];
+        }
+      });
+    } else if (
+      typeof unflatObject[i] === "object" &&
+      unflatObject[i] !== null
+    ) {
+      const temp = flatten(unflatObject[i]);
+      for (const j in temp) {
+        result[i + "." + j] = temp[j];
+      }
+    } else {
+      result[i] = unflatObject[i];
+    }
+  }
+  return result
 }
 
 // Problem 4: Complete the unflatten function that takes a JS Object, returns a JS Object in unflatten format
