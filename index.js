@@ -55,10 +55,29 @@ function flatten(unflatObject) {
       result[i] = unflatObject[i];
     }
   }
-  return result
+  return result;
 }
 
 // Problem 4: Complete the unflatten function that takes a JS Object, returns a JS Object in unflatten format
 function unflatten(flatObject) {
   // Write your code here
+  let result = {};
+  for (let key in flatObject) {
+    if (flatObject.hasOwnProperty(key)) {
+      let keys = key.split(".");
+      let value = flatObject[key];
+      let current = result;
+      keys.forEach((k, index) => {
+        if (index === keys.length - 1) {
+          current[k] = value;
+        } else {
+          if (!current[k]) {
+            current[k] = isNaN(keys[index + 1]) ? {} : [];
+          }
+          current = current[k];
+        }
+      });
+    }
+  }
+  return result;
 }
