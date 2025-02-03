@@ -6,16 +6,19 @@ import ThemedBtn from "./components/ThemedBtn";
 import { Counter } from "./components/Counter";
 import Todo from "./components/Todo";
 import { ErrorBoundary } from "react-error-boundary";
+import ErrorProneComponent from "./components/ErrorProneComponent";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <ErrorBoundary fallback={<div>Some Error Occured</div>}></ErrorBoundary>
+      <ErrorBoundary fallback={<div>Some Error Occured</div>}>
       {/* <ThemedBtn /> */}
       {/* <Counter /> */}
       <Todo />
+      {/* <ErrorProneComponent /> */}
+      </ErrorBoundary>
     </>
   );
 }
