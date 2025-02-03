@@ -3,7 +3,7 @@ import { useReducer } from "react";
 const counterReducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT":
-      return { count: state.count + 1 };
+      return { count: state.count + action.payload };
     case "DECREMENT":
       return { count: state.count - 1 };
     case "RESET":
@@ -22,7 +22,7 @@ export const Counter = () => {
       <p>Count : {state.count}</p>
       <button
         onClick={() => {
-          dispatch({ type: "INCREMENT" });
+          dispatch({ type: "INCREMENT" ,payload:10});
         }}
       >
         Increase

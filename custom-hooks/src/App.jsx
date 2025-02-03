@@ -4,14 +4,18 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import ThemedBtn from "./components/ThemedBtn";
 import { Counter } from "./components/Counter";
+import Todo from "./components/Todo";
+import { ErrorBoundary } from "react-error-boundary";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <ThemedBtn />
-      <Counter />
+      <ErrorBoundary fallback={<div>Some Error Occured</div>}></ErrorBoundary>
+      {/* <ThemedBtn /> */}
+      {/* <Counter /> */}
+      <Todo />
     </>
   );
 }

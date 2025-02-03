@@ -6,7 +6,7 @@ const ThemedBtn = () => {
   return (
     <div>
       <button
-        onClick={()=>toggleTheme()}
+        onClick={toggleTheme}
         style={{
           color: theme === "light" ? "black" : "white",
           backgroundColor: theme === "light" ? "blue" : "black",
